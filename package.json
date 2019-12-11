@@ -1,25 +1,31 @@
 {
   "name": "rnpx",
   "version": "1.0.0",
-  "description": "react-cli",
-  "main": "./bin/rnpx.js",
+  "description": "react项目构建cli",
+  "main": "index.js",
+  "author": "panjunlin",
   "bin": {
-    "rnpx": "rnpx.js"
+    "rnpx": "./bin/rnpx.js"
   },
-  "scripts": {
-    "test": "rnpx -c test"
+  "bugs": {
+    "url": "https://github.com/AllenPan03/rnpx/issues"
   },
+  "bundleDependencies": false,
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.18.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.3",
+    "gulp-replace": "^1.0.0"
+  },
+  "deprecated": false,
+  "homepage": "https://github.com/AllenPan03/rnpx#readme",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AllenPan03/rnpx.git"
   },
-  "keywords": [
-    "rnpx"
-  ],
-  "author": "allenpjl",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AllenPan03/rnpx/issues"
-  },
-  "homepage": "https://github.com/AllenPan03/rnpx#readme"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
