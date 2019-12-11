@@ -1,0 +1,25 @@
+{
+  "name": "rnpx",
+  "version": "1.0.0",
+  "description": "react-cli",
+  "main": "./bin/rnpx.js",
+  "bin": {
+    "rnpx": "rnpx.js"
+  },
+  "scripts": {
+    "test": "rnpx -c test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllenPan03/rnpx.git"
+  },
+  "keywords": [
+    "rnpx"
+  ],
+  "author": "allenpjl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllenPan03/rnpx/issues"
+  },
+  "homepage": "https://github.com/AllenPan03/rnpx#readme"
+}
