@@ -1,16 +1,6 @@
 #!/usr/bin/env node
 const pkg = require("../package.json");
-const cwdPath = process.cwd();
-const path = require('path');
-const fs = require("fs");
-const gulp = require("gulp");
-const replace = require('gulp-replace');
-const rename = require("gulp-rename");
-const markdown = require("./markdown.js");
 var program = require('commander');
-const log = require("./log.js");
-const util = require("./util.js");
-const api = require("./api.js");
 
 /**
  * 创建项目
