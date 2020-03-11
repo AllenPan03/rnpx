@@ -24,7 +24,7 @@ markdown.update = function () {
  * 创建所有文档配置
  */
 markdown.creatConfigAllType = function () {
-    markdown.creatConfigByType("entrys");
+    markdown.creatConfigByType("entries");
     markdown.creatConfigByType("components");
 }
 
@@ -33,14 +33,14 @@ markdown.creatConfigAllType = function () {
  * @param {Function} callback 生成完毕回调
  */
 markdown.creatMarkdownAllType = function (callback) {
-    let entrysMdText = markdown.creatTextByType("entrys");
+    let entriesMdText = markdown.creatTextByType("entries");
     let componentsMdText = markdown.creatTextByType("components");
 
     let pkg = require(`${cwdPath}/package.json`);
 
     gulp.src(path.resolve(__dirname, "../tpl/reactProject/README.md"))
         .pipe(replace('__description__', pkg.description))
-        .pipe(replace('__entrys__', entrysMdText))
+        .pipe(replace('__entries__', entriesMdText))
         .pipe(replace('__components__', componentsMdText))
         .pipe(gulp.dest(`${cwdPath}/`))
         .on("end", () => {
