@@ -1,6 +1,6 @@
 {
   "name": "rnpx",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "react项目构建cli",
   "main": "index.js",
   "author": "panjunlin",
