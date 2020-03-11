@@ -76,7 +76,7 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.4.1",
     "multer": "^1.2.1",
-    "open": "^0.0.5",
+    "open": "^7.0.3",
     "postcss-less": "^3.0.2",
     "postcss-loader": "^3.0.0",
     "react-loadable": "^5.5.0",
