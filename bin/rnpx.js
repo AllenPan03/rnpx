@@ -6,10 +6,9 @@ const path = require('path');
 const fs = require("fs");
 const gulp = require("gulp");
 const replace = require('gulp-replace');
-const rename = require("gulp-rename");
 const markdown = require("./markdown.js");
 const log = require("./log.js");
-const util = require("./util.js");
+const exec = require('child_process').exec;
 
 /**
  * 创建项目
@@ -22,28 +21,34 @@ var createProject = function (value) {
     }
     // 复制整体目录
     const reactProjectPath = path.resolve(__dirname, "../tpl/reactProject/");
+    
     const valueArr = value.split("/");
     const projectName = valueArr[0];
     const projectDisc = valueArr[1];
+    const projectPath = `${cwdPath}/${projectName}`
+    console.log(projectPath)
+    // 创建目录
+    exec(`mkdir ${projectName}`);
+    exec(`cd ${projectName}`);
     gulp.src(`${reactProjectPath}/**`)
         .pipe(replace('__name__', projectName))
         .pipe(replace('__description__', projectDisc))
         .pipe(replace('__pageTitle__', projectDisc))
-        .pipe(gulp.dest(`${cwdPath}`))
+        .pipe(gulp.dest(projectPath))
         .on("end", () => {
             log.success(`项目：${projectDisc} --创建完毕`);
-            markdown.update();
+            markdown.update(projectName);
         });
 
     // 复制隐藏文件
     gulp.src(`${reactProjectPath}/.babelrc`)
-        .pipe(gulp.dest(`${cwdPath}`));
+        .pipe(gulp.dest(projectPath));
 
     // 创建.gitignore
     const gitignoreText = fs.readFileSync(`${reactProjectPath}/gitignore.txt`);
-    fs.writeFileSync('.gitignore', gitignoreText, 'utf8');
+    fs.writeFileSync(`${projectPath}/.gitignore`, gitignoreText, 'utf8');
     setTimeout(() => {
-        fs.unlinkSync(`${cwdPath}/gitignore.txt`);
+        fs.unlinkSync(`${projectPath}/gitignore.txt`);
     }, 1000);
 }
 

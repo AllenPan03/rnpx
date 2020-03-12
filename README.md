@@ -5,7 +5,10 @@
 ```
 npm install rnpx -g
 ```
-
+#### 创建项目
+```node
+rnpx c 项目名/项目描述
+```
 
 #### md 文档操作 （v2.1.0+）
 
@@ -33,10 +36,10 @@ project
 │   │   api        // 接口, rnpx api 可生成接口
 │   │   commons     // 公共模块
 │   │   components // 项目共用组件
-│   │   entrys         // 项目入口
+│   │   entries         // 项目入口
 │   │   images        // 项目共用图片
-│   │   libraries      // 第三方库
-│   │   pages          // html页面模板
+│   │   utils        // 辅助函数库
 │   │   reducers      // redux reducers
 │   │   styles           // 项目共用样式
+└─static            // 静态资源（不会被编译）
 ```

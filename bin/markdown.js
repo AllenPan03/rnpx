@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const replace = require('gulp-replace');
 const path = require('path');
 const fs = require("fs");
-const cwdPath = process.cwd();
+let cwdPath = '';
 const codeAnnotation = require("./codeAnnotation.js");
 const util = require("./util.js");
 const log = require("./log.js");
@@ -12,7 +12,8 @@ let markdown = {};
 /**
  * 更新文档
  */
-markdown.update = function () {
+markdown.update = function (projectName) {
+    cwdPath = `${process.cwd()}/${projectName}`;
     log.info("开始更新文档...");
     markdown.creatConfigAllType();
     markdown.creatMarkdownAllType(() => {
@@ -25,7 +26,7 @@ markdown.update = function () {
  */
 markdown.creatConfigAllType = function () {
     markdown.creatConfigByType("entries");
-    markdown.creatConfigByType("components");
+    // markdown.creatConfigByType("components");
 }
 
 /**
@@ -135,7 +136,7 @@ markdown.creatConfigByType = function (type) {
 
     for (let i = 0; i < dirList.length; i++) {
         // 读取内容并且获得注释对象
-        let itemPath = `${cwdPath}/src/${type}/${dirList[i]}/App.jsx`;
+        let itemPath = `${cwdPath}/src/${type}/${dirList[i]}/${dirList[i]}.jsx`;
         const text = fs.readFileSync(itemPath, 'utf-8');
         let reg = /(?:^|\n|\r)\s*\/\*[\s\S]*?\*\/\s*(?:\r|\n|$)/g;
         let mat = text.match(reg);
