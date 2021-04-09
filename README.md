@@ -10,7 +10,7 @@ npm install rnpx -g
 rnpx c 项目名/项目描述
 ```
 
-#### md 文档操作 （v2.1.0+）
+#### md 文档操作 （v1.0.3+）
 
 ```node
 rnpx md --update
